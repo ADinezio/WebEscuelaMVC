@@ -84,7 +84,7 @@ namespace WebEscuelaMVC.Controllers
         [HttpGet]
         public ActionResult ListarPorEstado(string estado)
         {
-            List<Aula> lista = (from a in context.aulas where a.Estado == estado select a).ToList();
+            List<Aula> lista = (from a in context.aulas where a.Estado.ToUpper() == estado.ToUpper() select a).ToList();
             return View(lista);
         }
 
